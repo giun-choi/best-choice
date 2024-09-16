@@ -3,9 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "build": "rimraf build && webpack --config webpack.config.js",
-    "dev": "webpack-dev-server",
-    "prettier-check-src": "prettier src/** --check",
-    "prettier-write-src": "prettier src/** --write"
+    "dev": "webpack-dev-server"
   },
   "author": "wooni",
   "license": "MIT",

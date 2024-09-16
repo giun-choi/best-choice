@@ -14,7 +14,7 @@ module.exports = [
       '@stylistic/quotes': ['error', 'single'],
       '@stylistic/quote-props': ['error', 'as-needed'],
       '@stylistic/jsx-quotes': ['error', 'prefer-double'],
-      '@stylistic/multiline-ternary': ['error', 'always'],
+      // '@stylistic/multiline-ternary': ['error', 'always'],
       '@stylistic/space-infix-ops': 'error',
       '@stylistic/array-bracket-spacing': ['error', 'never'],
       '@stylistic/arrow-spacing': 'error',

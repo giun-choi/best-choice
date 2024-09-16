@@ -1,20 +1,17 @@
-const getDataURL = (file: File) => {
-  return new Promise((resolve, _) => {
+export const getDataURL = (file: File): Promise<string | null> => {
+  return new Promise((resolve, reject) => {
     const reader = new FileReader()
 
     reader.addEventListener('load', (event) => {
-      resolve(event)
+      const dataURL = event.target.result
+
+      if (typeof dataURL === 'string') {
+        resolve(dataURL)
+      } else {
+        console.error('Failed to convert to "data:url"')
+        reject(null)
+      }
     })
     reader.readAsDataURL(file)
   })
-}
-
-export const saveDataURL = async (files: FileList) => {
-  for (let i = 0; i < files.length; i++) {
-    const file = files.item(i)
-
-    if (file) {
-      console.log(await getDataURL(file))
-    }
-  }
 }

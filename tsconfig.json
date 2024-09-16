@@ -5,6 +5,9 @@
     "noImplicitAny": true,
     "removeComments": true,
     "preserveConstEnums": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "paths": {
+      "svgs": ["./src/assets/svgs/*"]
+    }
   },
 }

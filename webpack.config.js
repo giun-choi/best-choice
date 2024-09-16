@@ -9,7 +9,10 @@ module.exports = {
     path: path.resolve(__dirname, 'build')
   },
   resolve: {
-    extensions: ['.js', '.jsx', '.tsx']
+    extensions: ['.js', '.jsx', '.tsx', '.ts'],
+    alias: {
+      svgs: path.resolve(__dirname, 'src/assets/svgs/')
+    }
   },
   module: {
     rules: [
@@ -35,6 +38,10 @@ module.exports = {
         options: {
           minimize: true
         }
+      },
+      {
+        test: /\.svg$/,
+        type: 'asset/resource'
       }
     ]
   },
