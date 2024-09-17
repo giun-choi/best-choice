@@ -34,7 +34,7 @@ const Match = ({
   useEffect(() => {
     setIsLargerWidthThanHeight(width > height)
   }, [width, height])
-  console.log('isLargerWidthThanHeight :', isLargerWidthThanHeight)
+
   if (finalWinnerDataURL) {
     return (
       <MatchImg
