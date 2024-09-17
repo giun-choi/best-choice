@@ -17,15 +17,17 @@ const App = () => {
   return (
     <Container>
       {hasImgFiles ? (
-        <Tournament
-          match={match}
-          chooseWinner={chooseWinner}
-          finalWinnerDataURL={finalWinnerDataURL}
-        />
+        <>
+          <Tournament
+            match={match}
+            chooseWinner={chooseWinner}
+            finalWinnerDataURL={finalWinnerDataURL}
+          />
+          <ResetBtn reset={reset} />
+        </>
       ) : (
         <PhotoUploadBtn onChange={initFileList} />
       )}
-      <ResetBtn reset={reset} />
     </Container>
   )
 }

@@ -5,12 +5,13 @@ import { useWindowSize } from '../../hooks'
 import { MatchProps } from './types'
 import { useEffect, useState } from 'react'
 
-const Container = styled.div<{ isLargerWidthThanHeight: boolean }>`
+const Container = styled.div<{ isLargerWidthThanHeight?: boolean }>`
   display: flex;
   flex-direction: ${({ isLargerWidthThanHeight }) =>
     isLargerWidthThanHeight ? 'row' : 'column'};
   align-items: center;
-  gap: 10px;
+  gap: ${({ isLargerWidthThanHeight }) =>
+    isLargerWidthThanHeight ? '3vw' : '3vh'};
 `
 
 const Span = styled.span`
@@ -37,10 +38,23 @@ const Match = ({
 
   if (finalWinnerDataURL) {
     return (
-      <MatchImg
+      <Container
+        style={{ paddingBottom: !isLargerWidthThanHeight ? '15vh' : undefined }}
         isLargerWidthThanHeight={isLargerWidthThanHeight}
-        src={finalWinnerDataURL}
-      />
+      >
+        <h1
+          style={{
+            fontFamily: 'fantasy',
+            fontSize: 'xxx-large'
+          }}
+        >
+          Best Choice
+        </h1>
+        <MatchImg
+          isLargerWidthThanHeight={isLargerWidthThanHeight}
+          src={finalWinnerDataURL}
+        />
+      </Container>
     )
   }
 

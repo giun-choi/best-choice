@@ -11,6 +11,7 @@ export const Container = styled.div`
 `
 
 export const PhotoUploadLabel = styled.label`
+  display: inline-block;
   width: 30vw;
   height: 30vw;
   max-width: 50vh;

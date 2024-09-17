@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-import { BLACK, WHITE } from '../constants/colors'
+import { WHITE } from '../constants/colors'
 
 const ResetLabel = styled.label`
   width: 10vw;
