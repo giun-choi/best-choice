@@ -14,8 +14,9 @@ const Container = styled.div<{ isLargerWidthThanHeight?: boolean }>`
     isLargerWidthThanHeight ? '3vw' : '3vh'};
 `
 
-const Span = styled.span`
-  font-size: 1.5rem;
+const Span = styled.span<{ isLargerWidthThanHeight: boolean }>`
+  font-size: ${({ isLargerWidthThanHeight }) =>
+    isLargerWidthThanHeight ? '5vw' : '5vh'};
   font-weight: bold;
   color: ${BLACK};
 `
@@ -68,7 +69,7 @@ const Match = ({
           setLoading(true)
         }}
       />
-      <Span>VS</Span>
+      <Span isLargerWidthThanHeight={isLargerWidthThanHeight}>VS</Span>
       <MatchImg
         isLargerWidthThanHeight={isLargerWidthThanHeight}
         src={playerB.dataURL}

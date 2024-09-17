@@ -28,6 +28,7 @@ export const MatchImg = styled.img<{ isLargerWidthThanHeight: boolean }>`
   height: ${({ isLargerWidthThanHeight }) =>
     isLargerWidthThanHeight ? '90vh' : '40vh'};
   object-fit: contain;
-  border: 5px solid ${BLACK};
+  border: none;
   background-color: ${WHITE};
+  cursor: pointer;
 `
