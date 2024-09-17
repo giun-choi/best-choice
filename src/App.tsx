@@ -1,22 +1,31 @@
-import { useState } from 'react'
-import { Container } from './styleds'
+import { Container, MatchImg } from './styleds'
+import { useTournament } from './hooks'
 import PhotoUploadBtn from './components/PhotoUploadBtn'
 import Tournament from './components/Tournament'
+import ResetBtn from './components/ResetBtn'
 
 const App = () => {
-  const [fileList, setFileList] = useState<File[]>([])
+  const {
+    hasImgFiles,
+    initFileList,
+    match,
+    chooseWinner,
+    finalWinnerDataURL,
+    reset
+  } = useTournament()
 
   return (
     <Container>
-      {!fileList.length ? (
-        <PhotoUploadBtn
-          onChange={(imgFileList) => {
-            setFileList(imgFileList)
-          }}
+      {hasImgFiles ? (
+        <Tournament
+          match={match}
+          chooseWinner={chooseWinner}
+          finalWinnerDataURL={finalWinnerDataURL}
         />
       ) : (
-        <Tournament imgFileList={fileList} />
+        <PhotoUploadBtn onChange={initFileList} />
       )}
+      <ResetBtn reset={reset} />
     </Container>
   )
 }

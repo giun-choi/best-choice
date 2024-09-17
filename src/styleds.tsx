@@ -7,7 +7,7 @@ export const Container = styled.div`
   align-items: center;
   width: 100vw;
   height: 100vh;
-  background-color: ${BLACK};
+  background-color: ${WHITE};
 `
 
 export const PhotoUploadLabel = styled.label`
@@ -27,6 +27,6 @@ export const MatchImg = styled.img<{ isLargerWidthThanHeight: boolean }>`
   height: ${({ isLargerWidthThanHeight }) =>
     isLargerWidthThanHeight ? '90vh' : '40vh'};
   object-fit: contain;
-  border: 2px solid ${BLACK};
+  border: 5px solid ${BLACK};
   background-color: ${WHITE};
 `
