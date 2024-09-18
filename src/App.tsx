@@ -11,6 +11,7 @@ const App = () => {
     match,
     chooseWinner,
     finalWinnerDataURL,
+    round,
     reset
   } = useTournament()
 
@@ -20,6 +21,7 @@ const App = () => {
         <>
           <Tournament
             match={match}
+            round={round}
             chooseWinner={chooseWinner}
             finalWinnerDataURL={finalWinnerDataURL}
           />

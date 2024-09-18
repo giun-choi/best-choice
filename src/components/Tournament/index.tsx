@@ -5,7 +5,7 @@ import Match from './Match'
 
 const Tournament = (props: TournamentProps) => {
   const [loading, setLoading] = useState(false)
-  const { chooseWinner, ...others } = props
+  const { chooseWinner, round, ...others } = props
 
   return (
     <LoadingContainer {...others} loading={loading} setLoading={setLoading}>

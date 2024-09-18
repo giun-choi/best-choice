@@ -33,7 +33,6 @@ export const useWindowSize = () => {
 export const useTournament = () => {
   const [fileMap, setFileMap] = useState(new Map<string, File>())
   const [matchFileList, setMatchFileList] = useState<ImgStatus[]>([])
-  const hasImgFiles = fileMap.size > 0
   const [match, setMatch] = useState<Match | null>(null)
   const [matchCount, setMatchCount] = useState<number | null>(null)
   const [finalWinnerDataURL, setFinalWinnerDataURL] = useState<string | null>(
@@ -41,6 +40,11 @@ export const useTournament = () => {
   )
 
   const MATCHING_COUNT = 2
+
+  const hasImgFiles = fileMap.size > 0
+  const round = matchFileList.length
+    ? Math.ceil(matchFileList.length / 2)
+    : null
 
   const initMatch = async (matchCount: number) => {
     if (!matchCount || !matchFileList.length) {
@@ -134,6 +138,7 @@ export const useTournament = () => {
     match,
     chooseWinner,
     finalWinnerDataURL,
+    round,
     reset
   }
 }

@@ -23,6 +23,7 @@ const Span = styled.span<{ isLargerWidthThanHeight: boolean }>`
 
 const Match = ({
   match,
+  round,
   chooseWinner,
   finalWinnerDataURL,
   setLoading
