@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-import { BLACK, WHITE } from './constants/colors'
+import { WHITE } from './constants/colors'
 
 export const Container = styled.div`
   display: flex;
@@ -8,6 +8,10 @@ export const Container = styled.div`
   width: 100vw;
   height: 100vh;
   background-color: ${WHITE};
+
+  @media (max-width: 1199px) {
+    height: ${window.innerHeight};
+  }
 `
 
 export const PhotoUploadLabel = styled.label`
