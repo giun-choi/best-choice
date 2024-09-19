@@ -1,9 +1,7 @@
 import { MatchImg } from '../../styleds'
 import styled from '@emotion/styled'
-import { BLACK } from '../../constants/colors'
-import { useWindowSize } from '../../hooks'
 import { MatchProps } from './types'
-import { useEffect, useState } from 'react'
+import { BLACK } from '../../constants/colors'
 
 const Container = styled.div<{ isLargerWidthThanHeight?: boolean }>`
   display: flex;
@@ -14,7 +12,7 @@ const Container = styled.div<{ isLargerWidthThanHeight?: boolean }>`
     isLargerWidthThanHeight ? '3vw' : '3vh'};
 `
 
-const Span = styled.span<{ isLargerWidthThanHeight: boolean }>`
+export const Span = styled.span<{ isLargerWidthThanHeight: boolean }>`
   font-size: ${({ isLargerWidthThanHeight }) =>
     isLargerWidthThanHeight ? '5vw' : '5vh'};
   font-weight: bold;
@@ -23,20 +21,12 @@ const Span = styled.span<{ isLargerWidthThanHeight: boolean }>`
 
 const Match = ({
   match,
-  round,
   chooseWinner,
   finalWinnerDataURL,
-  setLoading
+  setLoading,
+  isLargerWidthThanHeight
 }: MatchProps) => {
-  const { width, height } = useWindowSize()
-  const [isLargerWidthThanHeight, setIsLargerWidthThanHeight] = useState(
-    width > height
-  )
   const { playerA, playerB } = match
-
-  useEffect(() => {
-    setIsLargerWidthThanHeight(width > height)
-  }, [width, height])
 
   if (finalWinnerDataURL) {
     return (

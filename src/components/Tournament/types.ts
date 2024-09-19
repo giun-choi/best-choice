@@ -8,16 +8,14 @@ export interface TournamentProps {
   finalWinnerDataURL: string | null
 }
 
-export type LoadingContainerProps = Omit<
-  TournamentProps,
-  'round' | 'chooseWinner'
-> & {
+export type LoadingContainerProps = Omit<TournamentProps, 'chooseWinner'> & {
   loading: boolean
   setLoading: React.Dispatch<React.SetStateAction<boolean>>
   children?: ReactNode
 }
 
-export type MatchProps = Omit<TournamentProps, 'match'> & {
+export type MatchProps = Omit<TournamentProps, 'match' | 'round'> & {
   match: Match
   setLoading: React.Dispatch<React.SetStateAction<boolean>>
+  isLargerWidthThanHeight: boolean
 }
