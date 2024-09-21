@@ -6,8 +6,13 @@
       "src": "favicon.ico"
     }
   ],
-  "start_url": ".",
+  "start_url": "https://stupendous-starburst-8f2217.netlify.app/",
   "display": "standalone",
   "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "background_color": "#ffffff",
+  "description": "고르기 힘든 비슷한 셀카 및 다른 사진들을 업로드하여 하나하나 비교해 제일 괜찮은 사진 하나를 선택할 수 있게 해줍니다.",
+  "id": "bc",
+  "scope": "scope is an optional member that defines which URL are within the navigation scope of your application. If the user navigates outside of your app's scope, they will be navigated to a normal browser window. scope can often just be set to the base URL of your PWA.",
+  "orientation": "any",
+  "lang": "ko"
 }
