@@ -14,7 +14,7 @@ module.exports = [
       '@stylistic/quotes': ['error', 'single'],
       '@stylistic/quote-props': ['error', 'as-needed'],
       '@stylistic/jsx-quotes': ['error', 'prefer-double'],
-      // '@stylistic/multiline-ternary': ['error', 'always'],
+      '@stylistic/multiline-ternary': ['error', 'always-multiline'],
       '@stylistic/space-infix-ops': 'error',
       '@stylistic/array-bracket-spacing': ['error', 'never'],
       '@stylistic/arrow-spacing': 'error',
@@ -23,18 +23,21 @@ module.exports = [
       '@stylistic/function-call-spacing': ['error', 'never'],
       '@stylistic/comma-dangle': ['error', 'never'],
       '@stylistic/jsx-equals-spacing': ['error', 'never'],
-      '@stylistic/jsx-tag-spacing': ['error', {
-        closingSlash: 'never',
-        beforeSelfClosing: 'always',
-        afterOpening: 'never',
-        beforeClosing: 'never'
-      }]
+      '@stylistic/jsx-tag-spacing': [
+        'error',
+        {
+          closingSlash: 'never',
+          beforeSelfClosing: 'always',
+          afterOpening: 'never',
+          beforeClosing: 'never'
+        }
+      ]
     },
     languageOptions: {
       parser: parserTs
     }
   },
-  // Project Setting File
+  // Project Setting
   {
     plugins: {
       '@stylistic': stylistic
