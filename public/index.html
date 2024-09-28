@@ -7,11 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Best Choice</title>
     <script>
-      if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register(
-          '/sw.js'
-        );
-      }
+      window.addEventListener('load', function () { 
+        navigator.serviceWorker.register('/sw.js'); 
+      });
     </script>
   </head>
   <style>
