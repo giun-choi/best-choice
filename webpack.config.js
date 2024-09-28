@@ -54,7 +54,8 @@ module.exports = {
       patterns: [
         { from: 'public/android', to: 'android' },
         { from: 'public/ios', to: 'ios' },
-        { from: 'public/windows11', to: 'windows11' }
+        { from: 'public/windows11', to: 'windows11' },
+        { from: 'public/sw.js', to: 'sw.js' }
       ]
     })
   ],
