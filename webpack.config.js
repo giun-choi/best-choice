@@ -1,5 +1,6 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 module.exports = {
   mode: 'development',
@@ -40,7 +41,7 @@ module.exports = {
         }
       },
       {
-        test: /\.svg$/,
+        test: /\.(png|svg|jpg|jpeg|gif)$/,
         type: 'asset/resource'
       }
     ]
@@ -48,6 +49,13 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'public/index.html')
+    }),
+    new CopyWebpackPlugin({
+      patterns: [
+        { from: 'public/android', to: 'android' },
+        { from: 'public/ios', to: 'ios' },
+        { from: 'public/windows11', to: 'windows11' }
+      ]
     })
   ],
   devServer: {
