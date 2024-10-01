@@ -54,7 +54,9 @@ self.addEventListener('fetch', (event) => {
         if (!response) {
           console.warn('Cache information does not exist.')
 
-          return fetch(event.request).catch(() => {
+          return fetch(event.request).catch((err) => {
+            console.error(err)
+
             return new Response(offlinePage, {
               headers: {
                 'Content-Type': 'text/html'
