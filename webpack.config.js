@@ -6,7 +6,8 @@ module.exports = {
   mode: 'development',
   entry: path.resolve(__dirname, 'src/index.tsx'),
   output: {
-    filename: '[name].[chunkhash].js',
+    filename: '[name].js',
+    assetModuleFilename: '[name][ext][query]',
     path: path.resolve(__dirname, 'build')
   },
   resolve: {
