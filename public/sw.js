@@ -3,6 +3,7 @@
 const cacheName = 'bcPWA-v1'
 
 const contentToCache = [
+  '/',
   '/favicon.svg',
   '/photo_upload.svg',
   '/reset.svg',
@@ -47,24 +48,19 @@ self.addEventListener('install', (event) => {
 })
 
 self.addEventListener('fetch', (event) => {
-  event.respondWith(
-    caches
-      .match(event.request)
-      .then((response) => {
-        if (!response) {
-          console.warn('Cache information does not exist.')
+  const offlineResponse = new Response(offlinePage, {
+    headers: {
+      'Content-Type': 'text/html'
+    }
+  })
 
-          return fetch(event.request).catch((err) => {
-            console.error(err)
+  const url = new URL(event.request.url)
 
-            return new Response(offlinePage, {
-              headers: {
-                'Content-Type': 'text/html'
-              }
-            })
-          })
-        }
-        return response
-      })
-  )
+  if (contentToCache.includes(url.pathname)) {
+    event.respondWith(
+      caches
+        .match(url.pathname)
+        .then(response => response || offlineResponse)
+    )
+  }
 })
