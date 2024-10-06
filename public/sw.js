@@ -8,6 +8,7 @@ const contentToCache = [
   '/photo_upload.svg',
   '/reset.svg',
   '/main.js',
+  '/manifest.json',
   '/index.html'
 ]
 
@@ -41,26 +42,45 @@ const offlinePage = `
 
 self.addEventListener('install', (event) => {
   event.waitUntil(
+    // 정적 캐싱
     caches
       .open(cacheName)
       .then((cache) => cache.addAll(contentToCache))
   )
 })
 
+// fetch에서 Promise로 response를 성공적으로 받게되면 respondWith와 같은 기능이 실행되기 전 상태
+// fetch에서 Promise에서 resolve로 response를 성공적으로 받게되면 respondWith와 같은 기능이 실행한 후 상태
+// respondWith와 같은 기능은 fetch 이벤트 안에서 1번만 실행이 가능한 것으로 예상됨
 self.addEventListener('fetch', (event) => {
+  // 콜백 함수 외부에 선언하는 경우 오프라인에서 1번만 사용가능(원인은 알 수 없음)
   const offlineResponse = new Response(offlinePage, {
     headers: {
       'Content-Type': 'text/html'
     }
   })
+  const requestUrl = event.request.url
+  const url = new URL(requestUrl)
 
-  const url = new URL(event.request.url)
-
-  if (contentToCache.includes(url.pathname)) {
-    event.respondWith(
-      caches
-        .match(url.pathname)
-        .then(response => response || offlineResponse)
+  event
+    .respondWith(
+      fetch(requestUrl)
+        .then(async (response) => {
+          // 동적 캐싱 (로드되는 주소만 캐싱가능)
+          await caches
+            .open(cacheName)
+            .then((cache) => {
+              cache.put(
+                url.pathname,
+                response.clone()
+              )
+            })
+          return response
+        })
+        .catch(() => (
+          caches
+            .match(url.pathname)
+            .then((response) => response || offlineResponse)
+        ))
     )
-  }
 })
