@@ -38,11 +38,11 @@ const PhotoUploadBtn = ({ onChange }: PhotoUploadBtnProps) => {
           }}
         />
       </div>
-      {isMoreThanTwoFileList ? (
+      {isMoreThanTwoFileList ?
         <p style={{ color: RED, fontWeight: 'bold' }}>
           최소 2개 이상의 사진을 골라주세요.
         </p>
-      ) : null}
+        : null}
     </Container>
   )
 }
