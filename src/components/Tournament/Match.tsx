@@ -9,12 +9,12 @@ const Container = styled.div<{ isLargerWidthThanHeight?: boolean }>`
     isLargerWidthThanHeight ? 'row' : 'column'};
   align-items: center;
   gap: ${({ isLargerWidthThanHeight }) =>
-    isLargerWidthThanHeight ? '3vw' : '3vh'};
+    isLargerWidthThanHeight ? '2vw' : '2vh'};
 `
 
 export const Span = styled.span<{ isLargerWidthThanHeight: boolean }>`
   font-size: ${({ isLargerWidthThanHeight }) =>
-    isLargerWidthThanHeight ? '5vw' : '5vh'};
+    isLargerWidthThanHeight ? '4vw' : '4vh'};
   font-weight: bold;
   color: ${BLACK};
 `

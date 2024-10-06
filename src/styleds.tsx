@@ -28,9 +28,9 @@ export const PhotoUploadLabel = styled.label`
 
 export const MatchImg = styled.img<{ isLargerWidthThanHeight: boolean }>`
   width: ${({ isLargerWidthThanHeight }) =>
-    isLargerWidthThanHeight ? '35vw' : '90vw'};
+    isLargerWidthThanHeight ? '37vw' : '70vw'};
   height: ${({ isLargerWidthThanHeight }) =>
-    isLargerWidthThanHeight ? '90vh' : '35vh'};
+    isLargerWidthThanHeight ? '70vh' : '37vh'};
   object-fit: contain;
   border: none;
   background-color: ${WHITE};
